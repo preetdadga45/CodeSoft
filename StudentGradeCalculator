@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.sql.SQLOutput;
+
+class Student {
+    private String name;
+    private List<Double> grades;
+
+    public Student(String name){
+        this.name = name;
+        this.grades = new ArrayList<>();
+    }
+
+    public String getName(){
+        return name;
+    }
+    public void addGrade(double grade){
+        this.grades.add(grade);
+    }
+
+    public List<Double> getGrades() {
+        return grades;
+    }
+
+    public double getAverage(){
+        if(grades.isEmpty()) return 0;
+        double sum = 0;
+        for (double element:grades){
+            sum+=element;
+        }
+        return sum/grades.size();
+    }
+}
+
+class GradeCalculator {
+    public static char calculateGrade(double average){
+        if (average>=90) return 'A';
+        else if(average>=80) return 'B';
+        else if(average>=70) return 'C';
+        else if(average>=60) return 'D';
+        else if(average>=50) return 'E';
+        else return 'F';
+    }
+}
+
